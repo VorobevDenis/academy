@@ -50,7 +50,12 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'rest_framework',
     'django_filters',
+    'drf_yasg',
 ]
+
+SWAGGER_SETTINGS = {
+    'VALIDATOR_URL': 'http://localhost:8189',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -89,7 +94,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ]
+    ],
+    # 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
 # Database
@@ -138,6 +144,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+
+
 # MEDIA_ROOT = os.path.join(BASE_DIR, "")
 MEDIA_URL = "/uploads/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')

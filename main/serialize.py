@@ -19,7 +19,7 @@ class DepartmentSerializer(ModelSerializer):
 
     class Meta:
         model = Department
-        fields = ['id_department', 'name_department', 'employee_count']
+        fields = ['id_department', 'name_department', 'employee_count', 'boss']
 
     def to_representation(self, instance):
         result = super(DepartmentSerializer, self).to_representation(instance)

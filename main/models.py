@@ -8,6 +8,10 @@ class Department(models.Model):
     """
     id_department = models.AutoField(primary_key=True, verbose_name='id департамента')
     name_department = models.CharField(max_length=256, verbose_name='Наименование департамента')
+    boss = models.ForeignKey('Employee', models.DO_NOTHING,
+                             blank=True, null=True,
+                             related_name='boss_department',
+                             verbose_name='Руководитель департамента')
 
     def __str__(self):
         return self.name_department
